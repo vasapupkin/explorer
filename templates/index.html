@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Zeeka Explorer</title>
+  </head>
+  <body>
+    Hello world!
+    {% for b in blocks %}
+      <h2>Block #{{ b.header.number }}</h2>
+      <p>Num txs: {{ b.body | length }}</p>
+      <h5>Transactions:</h5>
+      {% for tx in b.body %}
+        <p> {{ tx.data }} </p>
+      {% endfor %}
+    {% endfor %}
+  </body>
+</html>
