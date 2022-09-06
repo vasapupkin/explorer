@@ -5,14 +5,17 @@
     <title>Zeeka Explorer</title>
   </head>
   <body>
-    Hello world!
+    <h1>Miners</h1>
+    {% for m,amt in miners.items %}
+      <p><b>{{m}}:</b> {{amt}}</p>
+    {% endfor %}
+    <h1>Blocks</h1>
     {% for b in blocks %}
       <h2>Block #{{ b.header.number }}</h2>
-      <p>Num txs: {{ b.body | length }}</p>
-      <h5>Transactions:</h5>
-      {% for tx in b.body %}
-        <p> {{ tx.data }} </p>
-      {% endfor %}
+      <p><b>Root:</b> {{ b.header.block_root }}</p>
+      <p><b>Power:</b> {{ b.header.proof_of_work.target }}</p>
+      <p><b>Num txs:</b> {{ b.body | length }}</p>
+      <p><b>Miner:</b> {{ b.body.0 }}</p>
     {% endfor %}
   </body>
 </html>
