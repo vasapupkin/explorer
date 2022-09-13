@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zeeka Network: Explorer</title>
+    {% load static %}
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Styles -->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/calendar2/pignose.calendar.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/chartist/chartist.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/themify-icons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/weather-icons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/menubar/sidebar.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/data-table/buttons.bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/helper.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <li><a href="home"><i><img src="{% static 'pictures/zeeka.jpg' %}" alt="" /> </i> <span>Zeeka Network</span></a></li>
+                    <li class="label">Dashboard</li>
+                    <li><a href="home"><i class="ti-layout-grid2-alt"></i> Overview</a></li>
+                    <li><a href="account"><i class="ti-user"></i> Account</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /# sidebar -->
+
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="float-left">
+                        <div class="hamburger sidebar-toggle">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="searchnew float-left">
+                        <i class="fa fa-search"></i>
+                        <input type="text" id="searchvalue" class="form-control " placeholder="Wallet ID">
+                        <button class="btn btn-primary" id="ButtonSearch">Search</button>
+                    </div>
+                    <div class="float-right">
+                        <h4>Zeeka Network</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Overview</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active">Zeeka Network Explorer</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib">
+                                        <i class="ti-money color-success border-success"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Balance</div>
+                                        <div class="stat-digit" id="SearchBalance">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib">
+                                        <i class="ti-user color-primary border-primary"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Wallet</div>
+                                        <div class="stat-digit" id="SearchWallet">not found</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# row -->
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card p-0">
+                                <div class="stat-widget-three home-widget-three">
+                                    <div class="stat-icon bg-facebook">
+                                        <a href="https://discord.gg/4gbf9gZh8H" target="_blank"> 
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                                                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-digit">5,166</div>
+                                        <div class="stat-text">Members</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card p-0">
+                                <div class="stat-widget-three home-widget-three">
+                                    <div class="stat-icon bg-youtube">
+                                        <a href=" https://medium.com/@zeeka-network" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
+                                                <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z" />
+                                            </svg>
+                                         </a>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-digit">134</div>
+                                        <div class="stat-text">Followers</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card p-0">
+                                <div class="stat-widget-three home-widget-three">
+                                    <div class="stat-icon bg-twitter">
+                                        <a href="https://twitter.com/ZeekaKv" target="_blank">
+                                            <i class="ti-twitter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-digit">4,521</div>
+                                        <div class="stat-text">Followers</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card p-0">
+                                <div class="stat-widget-three home-widget-three">
+                                    <a href="https://github.com/zeeka-network/bazuka" target="_blank">
+                                        <div class="stat-icon bg-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <div class="stat-content">
+                                        <div class="stat-digit">264</div>
+                                        <div class="stat-text">Forks</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer">
+                                <p>2022 © Zeeka Network. - <a href="https://zeeka.io/">Zeeka</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery vendor -->
+
+
+
+
+    <script src="{% static 'js/lib/jquery.min.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.nanoscroller.min.js' %}"></script>
+    <!-- nano scroller -->
+    <script src="{% static 'js/lib/menubar/sidebar.js' %}"></script>
+    <script src="{% static 'js/lib/preloader/pace.min.js' %}"></script>
+    <!-- sidebar -->
+
+    <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <!-- bootstrap -->
+
+    <script src="{% static 'js/lib/calendar-2/moment.latest.min.js' %}"></script>
+    <script src="{% static 'js/lib/calendar-2/pignose.calendar.min.js' %}"></script>
+    <script src="{% static 'js/lib/calendar-2/pignose.init.js' %}"></script>
+
+
+    <script src="{% static 'js/lib/weather/jquery.simpleWeather.min.js' %}"></script>
+    <script src="{% static 'js/lib/weather/weather-init.js' %}"></script>
+    <script src="{% static 'js/lib/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'js/lib/circle-progress/circle-progress-init.js' %}"></script>
+    <script src="{% static 'js/lib/chartist/chartist.min.js' %}"></script>
+    <script src="{% static 'js/lib/sparklinechart/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'js/lib/sparklinechart/sparkline.init.js' %}"></script>
+    <script src="{% static 'js/lib/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/lib/owl-carousel/owl.carousel-init.js' %}"></script>
+    <!-- scripit init-->
+    <script src="{% static 'js/dashboard2.js' %}"></script>
+
+    <script src="{% static 'js/lib/data-table/datatables.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/jszip.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/pdfmake.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/vfs_fonts.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/buttons.print.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/datatables-init.js' %}"></script>
+    <!-- ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    {% block javascript %}
+    <script>
+
+        $("body").bind("ajaxSend", function (elm, xhr, s) {
+            if (s.type == "POST" || s.type == "GET") {
+                xhr.setRequestHeader('X-CSRF-Token', getCSRFTokenValue());
+            }
+        });
+
+        $("#ButtonSearch").click(function () {
+            var wallet_name = $("#searchvalue").val();
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'search_wallet' %}",
+                data: { 'csrfmiddlewaretoken': '{{ csrf_token }}', "wallet_name": wallet_name,},
+                success: function (response) {
+                    $("#SearchBalance").text(response["balance"])
+                    $("#SearchWallet").text(response["wallet_name"])
+                    $("#searchvalue").val("")
+                    $("#searchvalue").attr('placeholder','Wallet ID')
+                },
+                error: function (response) {
+                    alert("wallet not found");
+                    alert(response["responseJSON"]["error"]);
+                }
+            })
+        })
+    </script>
+    {% endblock javascript %}
+
+</body>
+
+</html>
